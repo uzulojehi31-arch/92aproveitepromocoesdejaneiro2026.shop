@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Preparando Oferta...</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(-45deg, #04110a, #062d1f, #04110a);
+    background-size: 400% 400%;
+    animation: bgMove 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* CONTAINER */
+.loader-box {
+    width: 320px;
+    height: 420px;
+    background: rgba(0,255,170,0.08);
+    border-radius: 30px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 40px rgba(0,255,170,0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeScale 1s ease;
+}
+
+@keyframes fadeScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 900;
+    color: #2dffb3;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #eafff6;
+    opacity: 0.85;
+    margin-bottom: 30px;
+}
+
+/* CIRCULAR LOADER */
+.circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: conic-gradient(#2dffb3 0deg, rgba(255,255,255,0.1) 0deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: background 0.3s linear;
+}
+
+.inner-circle {
+    width: 120px;
+    height: 120px;
+    background: #04110a;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percent {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2dffb3;
+}
+
+.link-btn {
+    margin-top: 25px;
+    background: linear-gradient(135deg, #2dffb3, #00d68f);
+    color: #021a11;
+    padding: 14px 36px;
+    border-radius: 40px;
+    font-size: 17px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.link-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(45,255,179,0.8);
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader-box">
+    <div class="title">OFERTA ESPECIAL</div>
+    <div class="subtitle">Preparando uma experiência exclusiva para você</div>
+
+    <div id="circle" class="circle">
+        <div class="inner-circle">
+            <div id="percent" class="percent">0%</div>
+        </div>
+    </div>
+
+    <a href="https://dianemariefztop81-crypto.github.io/aproveitasaldaojaneiro2026/" class="link-btn">
+        Continuar
+    </a>
+</div>
+
+<script>
+let percent = 0;
+const circle = document.getElementById("circle");
+const text = document.getElementById("percent");
+
+const loading = setInterval(() => {
+    percent++;
+    const deg = percent * 3.6;
+
+    circle.style.background = `
+        conic-gradient(
+            #2dffb3 ${deg}deg,
+            rgba(255,255,255,0.1) ${deg}deg
+        )`;
+
+    text.innerText = percent + "%";
+
+    if (percent >= 100) clearInterval(loading);
+}, 35);
+</script>
+
+</body>
+</html>
